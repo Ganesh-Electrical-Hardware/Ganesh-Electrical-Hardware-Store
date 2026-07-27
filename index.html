@@ -3,13 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ganesh Hardware</title>
+<title>Ganesh Hardware AI</title>
 
 <style>
-body{
-font-family:Arial,sans-serif;
+*{
 margin:0;
-background:#f5f5f5;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f4f4;
 }
 
 header{
@@ -17,49 +22,66 @@ background:#0d6efd;
 color:white;
 padding:20px;
 text-align:center;
+font-size:30px;
+font-weight:bold;
 }
 
 .container{
 padding:20px;
+max-width:600px;
+margin:auto;
 }
 
 input{
 width:100%;
-padding:12px;
+padding:15px;
 font-size:18px;
-margin-bottom:20px;
+border-radius:8px;
+border:1px solid #ccc;
+margin-top:20px;
 }
 
 button{
 width:100%;
-padding:12px;
-font-size:18px;
+padding:15px;
+font-size:20px;
 background:#0d6efd;
 color:white;
 border:none;
-border-radius:6px;
+border-radius:8px;
+margin-top:15px;
+cursor:pointer;
+}
+
+button:hover{
+background:#0953c7;
 }
 
 #result{
 margin-top:20px;
+padding:20px;
 background:white;
-padding:15px;
 border-radius:10px;
+font-size:20px;
+box-shadow:0 0 10px rgba(0,0,0,.1);
 }
 </style>
+
 </head>
 
 <body>
 
 <header>
-<h1>Ganesh Hardware AI</h1>
+Ganesh Hardware AI
 </header>
 
 <div class="container">
 
-<input id="search" placeholder="Item Name likho">
+<input id="searchBox" placeholder="Item Name likho">
 
-<button onclick="searchItem()">Search</button>
+<button onclick="searchItem()">
+Search
+</button>
 
 <div id="result"></div>
 
@@ -67,17 +89,43 @@ border-radius:10px;
 
 <script>
 
-const API="https://script.google.com/macros/s/AKfycbwheKG9A-KVFlgWOyjwXA7DnEeE92qr6LAL_2S-pY2bDsbzIWtb6yW2eRcQbtKy6wERhw/exec";
+const items={
 
-async function searchItem(){
+"asian paint":"Asian Paint 20L\nPrice : ₹6500",
 
-let item=document.getElementById("search").value;
+"putty":"JK Wall Putty 40kg\nPrice : ₹950",
 
-let res=await fetch(API+"?item="+encodeURIComponent(item));
+"cement":"UltraTech Cement\nPrice : ₹420",
 
-let data=await res.text();
+"pipe":"PVC Pipe 1 Inch\nPrice : ₹160",
 
-document.getElementById("result").innerHTML=data;
+"switch":"Anchor Switch\nPrice : ₹90",
+
+"wire":"Finolex Wire 1.5 Sqmm\nPrice : ₹1250",
+
+"fan":"Ceiling Fan\nPrice : ₹1800",
+
+"led bulb":"LED Bulb 9W\nPrice : ₹85",
+
+"socket":"Anchor Socket\nPrice : ₹120",
+
+"mcb":"MCB 32A\nPrice : ₹320"
+
+};
+
+function searchItem(){
+
+let item=document.getElementById("searchBox").value.toLowerCase().trim();
+
+if(items[item]){
+
+document.getElementById("result").innerHTML=items[item];
+
+}else{
+
+document.getElementById("result").innerHTML="Item Not Found";
+
+}
 
 }
 
