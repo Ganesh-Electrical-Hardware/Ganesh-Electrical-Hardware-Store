@@ -282,3 +282,68 @@ style="position:fixed;bottom:90px;right:20px;background:#0d6efd;color:white;padd
 <p>© 2026 Ganesh Electrical & Hardware Store. All Rights Reserved.</p>
 
 </footer>
+<!-- AI Assistant -->
+
+<section style="padding:50px 20px;background:#f5f7fa;">
+
+<h2 style="text-align:center;color:#0d47a1;">
+🤖 Ganesh Hardware AI Assistant
+</h2>
+
+<p style="text-align:center;">
+Ask about products, prices, stock or quotations.
+</p>
+
+<div style="max-width:700px;margin:30px auto;">
+
+<textarea
+id="userQuestion"
+placeholder="Example: 10 sheets of Wooden Ply chahiye"
+style="width:100%;height:120px;padding:15px;font-size:17px;border:1px solid #ccc;border-radius:10px;">
+</textarea>
+
+<button onclick="askAI()"
+style="margin-top:15px;width:100%;background:#0d6efd;color:white;padding:15px;border:none;border-radius:10px;font-size:18px;">
+Ask AI
+</button>
+
+<div id="aiAnswer"
+style="margin-top:20px;background:white;padding:20px;border-radius:10px;min-height:80px;">
+👋 Welcome! Ask me anything about our products.
+</div>
+
+</div>
+
+</section>
+
+<script>
+function askAI(){
+
+let q=document.getElementById("userQuestion").value.toLowerCase();
+
+let ans="Sorry, Product not found.";
+
+if(q.includes("wood")||q.includes("ply")){
+ans="🪵 Wooden Ply available. Contact us on WhatsApp for latest price.";
+}
+
+else if(q.includes("paint")){
+ans="🎨 Asian Paints, Berger & Nerolac available.";
+}
+
+else if(q.includes("cement")){
+ans="🏗️ Cement available. Please ask quantity for quotation.";
+}
+
+else if(q.includes("pipe")){
+ans="🚰 PVC & CPVC Pipes available.";
+}
+
+else if(q.includes("wire")||q.includes("electrical")){
+ans="⚡ Electrical wires, switches, MCB and fans available.";
+}
+
+document.getElementById("aiAnswer").innerHTML=ans;
+
+}
+</script>
