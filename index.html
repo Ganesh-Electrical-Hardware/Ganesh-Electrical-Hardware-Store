@@ -347,67 +347,7 @@ Your One-Stop Destination for Electrical, Hardware & Building Materials
 </p>
 
 </footer>
-    <script>
-const API_URL = "https://script.google.com/macros/s/AKfycbwheKG9A-KVFlgWOyjwXA7DnEeE92qr6LAL_2S-pY2bDsbzIWtb6yW2eRcQbtKy6wERhw/exec";
-
-let products = [];
-
-async function loadProducts() {
-    try {
-        const res = await fetch(API_URL);
-        products = await res.json();
-
-        console.log("Products Loaded:", products);
-
-        showProducts(products);
-
-    } catch (err) {
-        console.log(err);
-
-        document.getElementById("productList").innerHTML =
-        "<h3 style='text-align:center;color:red;'>Unable to load products.</h3>";
-    }
-}
-
-function showProducts(data){
-
-    let html="";
-
-    data.forEach(item=>{
-
-        html += `
-        <div style="
-        background:white;
-        border-radius:18px;
-        padding:18px;
-        box-shadow:0 10px 25px rgba(0,0,0,.12);
-        ">
-
-        <img src="${item.Photo}"
-        style="width:100%;height:180px;object-fit:cover;border-radius:12px;">
-
-        <h3>${item["Item name"]}</h3>
-
-        <p>🏷 Brand : ${item.Brand}</p>
-
-        <p>💰 ₹ ${item.Price}</p>
-
-        <p>📦 Stock : ${item.Stock}</p>
-
-        </div>
-        `;
-
-    });
-
-    document.getElementById("productList").innerHTML=html;
-
-}
-
-loadProducts();
-
-</script>
 
 </body>
 
 </html>
-
