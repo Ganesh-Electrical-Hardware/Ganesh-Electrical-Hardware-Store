@@ -466,32 +466,7 @@ loadProducts();
 
 </script>
   <script>
-function askAI() {
-    let q = document.getElementById("userQuestion").value.toLowerCase();
-    let ans = "❌ Product not found.";
 
-    if (q.includes("putty")) {
-        ans = "✅ Putty available.";
-    }
-    else if (q.includes("cement")) {
-        ans = "✅ Cement available.";
-    }
-    else if (q.includes("paint")) {
-        ans = "✅ Asian, Berger & Nerolac paints available.";
-    }
-    else if (q.includes("ply")) {
-        ans = "✅ Wooden Ply available.";
-    }
-    else if (q.includes("pipe")) {
-        ans = "✅ PVC & CPVC Pipes available.";
-    }
-    else if (q.includes("wire")) {
-        ans = "✅ Electrical wires available.";
-    }
-
-    document.getElementById("aiAnswer").innerHTML = ans;
-}
-</script>
 
 </body>
 
