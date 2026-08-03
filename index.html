@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ganesh Electrical &amp; Hardware Store — Vapi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-mark">⬡</span>
+        <span class="brand-text">GANESH <span class="accent">HARDWARE</span></span>
+      </div>
+      <nav class="site-nav">
+        <a href="#catalog">Catalog</a>
+        <a href="#assistant">AI Assistant</a>
+      </nav>
+      <div class="stock-pill" id="stockPill">
+        <span class="dot"></span>
+        <span id="stockCount">Loading stock…</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">GANESH ELECTRICAL &amp; HARDWARE STORE — VAPI</p>
+      <h1>Har निर्माण की ज़रूरत, <span class="accent">एक ही जगह.</span></h1>
+      <p class="hero-sub">Electrical, hardware aur building materials — sab kuch ek jagah. Hamara stock seedha Google Sheet se live update hota hai. Neeche assistant se poochho, wo aapke liye sahi item dhoondh dega.</p>
+      <div class="hero-actions">
+        <a href="tel:+916350665647" class="btn btn-primary">📞 Call Now</a>
+        <a href="https://wa.me/916350665647" class="btn btn-ghost">💬 WhatsApp</a>
+        <a href="#catalog" class="btn btn-ghost">Catalog Dekhein</a>
+      </div>
+    </div>
+    <div class="hero-ticker" aria-hidden="true">
+      <div class="ticker-track" id="tickerTrack"><!-- filled by JS --></div>
+    </div>
+  </section>
+
+  <!-- ===== CATALOG ===== -->
+  <section class="catalog" id="catalog">
+    <div class="section-head">
+      <h2>Product Catalog</h2>
+      <div class="catalog-controls">
+        <input type="search" id="searchInput" placeholder="Item search karein… (jaise: cement, putty)" />
+        <button id="refreshBtn" title="Sheet se dobara data lao">↻ Refresh</button>
+      </div>
+    </div>
+
+    <div id="catalogStatus" class="catalog-status">Google Sheet se data load ho raha hai…</div>
+    <div class="product-grid" id="productGrid"><!-- product cards injected here --></div>
+  </section>
+
+  <!-- ===== AI ASSISTANT (docked panel) ===== -->
+  <section class="assistant-anchor" id="assistant"></section>
+
+  <button class="cart-toggle" id="cartToggle" aria-label="Order cart kholein">
+    <span class="cart-icon">🛒</span>
+    <span class="cart-label">Order</span>
+    <span class="cart-badge" id="cartBadge">0</span>
+  </button>
+
+  <div class="cart-panel" id="cartPanel">
+    <div class="toolbox-header">
+      <span>Aapka Order</span>
+      <button id="cartClose" aria-label="Band karein">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty">Abhi cart khaali hai. Product ke saath "+ Add" dabayein.</p>
+    </div>
+    <div class="checkout-form">
+      <input type="text" id="custName" placeholder="Aapka naam*" />
+      <input type="tel" id="custMobile" placeholder="Mobile number*" />
+      <textarea id="custAddress" placeholder="Delivery address*" rows="2"></textarea>
+    </div>
+    <div class="cart-footer">
+      <button id="sendOrderBtn" class="btn btn-primary" style="width:100%; text-align:center;">📲 WhatsApp par Order Bhejein</button>
+    </div>
+  </div>
+
+  <button class="toolbox-toggle" id="toolboxToggle" aria-label="AI Assistant kholein">
+    <span class="toolbox-icon">🛠</span>
+    <span class="toolbox-label">Assistant</span>
+  </button>
+
+  <div class="toolbox-panel" id="toolboxPanel">
+    <div class="toolbox-header">
+      <span>Ganesh Hardware Assistant</span>
+      <button id="toolboxClose" aria-label="Band karein">✕</button>
+    </div>
+    <div class="toolbox-messages" id="chatMessages">
+      <div class="msg bot">Namaste! Main Ganesh Hardware ka smart assistant hoon. Mujhse poochein — jaise "500 ke andar kya milega", "paint karna hai, kya chahiye", ya "white cement add karo".</div>
+    </div>
+    <form class="toolbox-input" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Apna sawaal likhein…" autocomplete="off" />
+      <button type="submit">Bhejein</button>
+    </form>
+  </div>
+
+  <footer class="site-footer">
+    <p>Ganesh Electrical &amp; Hardware Store · Shop No.16-18, Silvasa Rd, Bhadakmora, Phase 2, GIDC, Vapi, Gujarat 396195 · 📞 +91 6350665647</p>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
+
